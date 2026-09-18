@@ -10,71 +10,136 @@
 
 ---
 
-## 🔥 Key Features
+## 📥 Step-by-Step Installation & Usage Guide (By Operating System)
 
-- **⚡ Multi-Threaded Reconnaissance Engine**: Parallel target scanning with configurable threads and custom rate limiting.
-- **🛡️ WAF & CDN Detection**: Identifies Cloudflare, AWS WAF, Akamai, Imperva, and native firewall signatures.
-- **🌐 Subdomain Enumeration**: Integrates passive OSINT sources (crt.sh, HackerTarget, AlienVault) with fallbacks for subfinder and amass.
-- **🔌 Intelligent Port & Service Scanning**: Rapid TCP port probes with service banner banner-grabbing and Nmap integration.
-- **🔍 Secret & Vulnerability Scanning**: Detects exposed API keys, credentials, CORS misconfigurations, and security headers.
-- **📊 Glassmorphic HTML & JSON Reports**: Generates interactive HTML dashboards featuring live charts, filterable tables, and CSV exports.
-- **🐧 Cross-Platform Support**: Built-in native Python socket/HTTP fallbacks for zero-dependency operation on Linux, macOS, and Windows.
+> ⚠️ **Important**: Do not copy and paste individual source files. Always clone the repository using `git clone` to ensure all script assets, styles, and dependencies are included.
 
 ---
 
-## 🚀 Quick Start
+### 🐧 1. Linux (Kali Linux, Ubuntu, Debian, Arch Linux)
 
-### Prerequisites
+#### Step 1: Clone the Repository
+Open your terminal and run:
+```bash
+git clone https://github.com/jahan-sarwar/CS-Recon.git
+cd CS-Recon
+```
 
-- Python 3.8 or higher
-- Optional: `nmap`, `subfinder`, `whatweb`, `gobuster`, `nikto` for enhanced tool probes.
+#### Step 2: Automated Dependencies Setup
+Run the included setup script to automatically install core security tools (`nmap`, `whois`, `dnsutils`, `subfinder`, `whatweb`, `nikto`, `gobuster`, etc.):
+```bash
+chmod +x setup.sh
+sudo ./setup.sh
+```
 
-### Installation
+#### Step 3: Install Python Dependencies
+```bash
+pip3 install -r requirements.txt
+```
 
-1. **Clone the repository:**
-   ```bash
-<<<<<<< HEAD
-   git clone git@github.com:jahan-sarwar/CS-Recon.git
-=======
-   git clone https://github.com/jahan-sarwar/CS-Recon.git
->>>>>>> 31a1d23 (feat: update CS RECON documentation, README, and gitignore configuration)
-   cd CS-Recon
-   ```
-
-2. **Run setup script (Linux / WSL / macOS):**
-   ```bash
-   chmod +x setup.sh
-   ./setup.sh
-   ```
-
-3. **Install optional Python dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
+#### Step 4: Run CS RECON
+```bash
+python3 cs_recon.py -t example.com --full
+```
 
 ---
 
-## 💻 Usage
+### 🍎 2. macOS
 
-### Basic Scan
+#### Step 1: Clone the Repository
+Open Terminal (`Cmd + Space` -> `Terminal`) and clone the project:
+```bash
+git clone https://github.com/jahan-sarwar/CS-Recon.git
+cd CS-Recon
+```
+
+#### Step 2: Install Core Security Binaries via Homebrew
+If Homebrew is not installed, install it from [brew.sh](https://brew.sh/). Then install required security tools:
+```bash
+brew install python3 nmap whois bind subfinder gobuster ffuf whatweb
+```
+
+#### Step 3: Install Python Dependencies
+```bash
+pip3 install -r requirements.txt
+```
+
+#### Step 4: Run CS RECON
 ```bash
 python3 cs_recon.py -t example.com
 ```
 
-### Full Recon Scan with Custom Output
+---
+
+### 🪟 3. Windows (PowerShell / Command Prompt / WSL)
+
+#### Option A: Native Windows (PowerShell / Command Prompt)
+
+##### Step 1: Clone the Repository
+Open PowerShell or CMD:
+```powershell
+git clone https://github.com/jahan-sarwar/CS-Recon.git
+cd CS-Recon
+```
+
+##### Step 2: Install Python Packages
+Make sure Python 3.8+ is installed from [python.org](https://www.python.org/). Then run:
+```powershell
+pip install -r requirements.txt
+```
+
+##### Step 3: Run CS RECON
+```powershell
+python cs_recon.py -t example.com
+```
+
+> 💡 *Note: On native Windows, CS RECON automatically uses built-in Python socket & HTTP engines for zero-dependency scanning.*
+
+#### Option B: Windows Subsystem for Linux (WSL) — Recommended for Windows
+If you have WSL (Ubuntu on Windows) installed:
+```bash
+git clone https://github.com/jahan-sarwar/CS-Recon.git
+cd CS-Recon
+chmod +x setup.sh
+sudo ./setup.sh
+python3 cs_recon.py -t example.com --full
+```
+
+---
+
+## 💻 Detailed Scan Command Examples
+
+### 1. Basic Recon Scan
+Probes domain WHOIS, DNS records, SSL certificates, security headers, and subdomains:
+```bash
+python3 cs_recon.py -t example.com
+```
+
+### 2. Full Multi-Threaded Recon Scan
+Performs deep port probing, WAF detection, subdomain enumeration, secret scanning, and remediation analysis:
 ```bash
 python3 cs_recon.py -t example.com -o my_report --threads 20 --full
 ```
 
-### Check Available System Tools & Dependencies
+### 3. Check Available System Tools & Dependencies
+Verifies installed security tools on your machine:
 ```bash
 python3 cs_recon.py --check-deps
 ```
 
-### View Help Options
+### 4. Help & Command Reference
 ```bash
 python3 cs_recon.py --help
 ```
+
+---
+
+## 📊 Glassmorphic HTML Dashboard & Reports
+
+CS RECON generates interactive HTML dashboards with real-time risk charts, filterable tables, and CSV export options:
+
+- `cs_recon_report.html` — Interactive visual HTML dashboard
+- `cs_recon_report.json` — Machine-readable telemetry report
 
 ---
 
@@ -83,10 +148,11 @@ python3 cs_recon.py --help
 ```
 CS-Recon/
 ├── cs_recon.py                   # Main Framework CLI & Recon Engine
-├── cs_recon_dashboard_preview.jpg # Dashboard Preview Screenshot
+├── cs_recon_dashboard_preview.jpg # Dashboard Preview Image
 ├── setup.sh                      # Automated Dependencies Installer for Linux/WSL
 ├── requirements.txt              # Optional Python Dependencies
-├── README.md                     # Project Documentation
+├── README.md                     # OS-Specific Installation & Usage Documentation
+├── .gitignore                    # Git Ignore Configuration
 └── LICENSE                       # MIT License
 ```
 
@@ -94,4 +160,4 @@ CS-Recon/
 
 ## 📄 License
 
-This project is distributed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](LICENSE).
