@@ -1,0 +1,10 @@
+# Ignore local scan output reports
+cs_recon_report*.json
+cs_recon_report*.html
+cs_recon_*_*.json
+cs_recon_*_*.html
+
+# Python bytecode & cache
+__pycache__/
+*.pyc
+.DS_Store

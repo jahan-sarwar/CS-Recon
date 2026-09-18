@@ -1,0 +1,5 @@
+# CS RECON — Python Dependencies
+# Standard python libraries (os, sys, socket, urllib, ssl, subprocess, json, re, argparse, shutil, concurrent.futures) are built into Python 3.8+
+# Optional packages for enhanced CLI colors on Windows (if needed):
+colorama>=0.4.6
+requests>=2.31.0
