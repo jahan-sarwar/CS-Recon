@@ -33,7 +33,11 @@
 
 1. **Clone the repository:**
    ```bash
+<<<<<<< HEAD
    git clone git@github.com:jahan-sarwar/CS-Recon.git
+=======
+   git clone https://github.com/jahan-sarwar/CS-Recon.git
+>>>>>>> 31a1d23 (feat: update CS RECON documentation, README, and gitignore configuration)
    cd CS-Recon
    ```
 

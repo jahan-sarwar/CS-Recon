@@ -1,10 +1,42 @@
-# Ignore local scan output reports
-cs_recon_report*.json
-cs_recon_report*.html
-cs_recon_*_*.json
-cs_recon_*_*.html
-
-# Python bytecode & cache
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+env/
+.venv
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# CS RECON Generated Reports & Output
+cs_recon_report*.html
+cs_recon_report*.json
+
+# OS specific
 .DS_Store
+Thumbs.db
